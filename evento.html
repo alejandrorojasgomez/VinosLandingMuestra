@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evento — Delicias & Vinos</title>
+  <meta name="description" content="Detalle del evento: fecha, lugar, qué incluye y cómo reservar tu cupo." />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/evento.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Inicio — Delicias & Vinos">
+        <img class="brand__mark" src="assets/img/logo.webp" alt="Delicias & Vinos" />
+        <span class="brand__name">Delicias&nbsp;&amp;&nbsp;Vinos<small>Selección gourmet</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="index.html#eventos" aria-current="page">Eventos</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-btn" href="catalogo.html" aria-label="Mi cuenta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></a>
+        <a class="icon-btn" href="catalogo.html" aria-label="Carrito"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2 3h3l2.4 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L22 7H6"/></svg><span class="cart-count" style="display:none">0</span></a>
+      </div>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </header>
+  <div class="nav-backdrop" aria-hidden="true"></div>
+
+  <main>
+    <!-- HERO DEL EVENTO -->
+    <section class="event-hero">
+      <div class="event-hero__photo" id="evPhoto" role="img" aria-label=""></div>
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Migas de pan">
+          <ol>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#eventos">Eventos</a></li>
+            <li id="evCrumb">Evento</li>
+          </ol>
+        </nav>
+        <span class="eyebrow event-hero__eyebrow" id="evEyebrow">Vive la experiencia</span>
+        <h1 id="evTitle">Evento</h1>
+        <p class="event-hero__tagline" id="evTagline"></p>
+        <div class="event-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><span id="evDateChip"></span></span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span id="evTimeChip"></span></span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.4"/></svg><span id="evPlaceChip"></span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUERPO -->
+    <section class="section event-body">
+      <div class="container">
+        <div class="event-body__grid">
+          <div class="event-prose reveal">
+            <p class="lead" id="evLead"></p>
+            <div id="evBody"></div>
+
+            <h3>Lo que incluye</h3>
+            <ul class="event-list" id="evIncludes"></ul>
+
+            <h3>Por qué no te lo puedes perder</h3>
+            <ul class="event-list" id="evHighlights"></ul>
+          </div>
+
+          <aside class="event-ficha reveal">
+            <div class="price" id="evPrice"></div>
+            <dl>
+              <div><dt><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Fecha</dt><dd id="evDate"></dd></div>
+              <div><dt><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Hora</dt><dd id="evTime"></dd></div>
+              <div><dt><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.4"/></svg>Lugar</dt><dd id="evPlace"></dd></div>
+              <div><dt><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="3"/><path d="M3 21a6 6 0 0 1 12 0M16 11l2 2 4-4"/></svg>Cupos</dt><dd id="evCupos"></dd></div>
+            </dl>
+            <button class="btn btn--gold btn--lg btn--block" id="evReserve">Reservar mi cupo</button>
+            <p class="fineprint">Te contactamos para confirmar tu reserva. Sin pago anticipado.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- OTROS EVENTOS -->
+    <section class="section more-events">
+      <div class="container">
+        <div class="section-head reveal" style="text-align:left;margin-inline:0">
+          <span class="eyebrow">Más planes</span>
+          <h2 class="section-title">Otros eventos &amp; catas</h2>
+        </div>
+        <div class="more-events__row" id="evMore"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="contacto">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <a class="brand" href="index.html"><img class="brand__mark" src="assets/img/logo.webp" alt="Delicias & Vinos" /><span class="brand__name">Delicias&nbsp;&amp;&nbsp;Vinos<small>Selección gourmet</small></span></a>
+          <p>Vinos y charcutería de primera calidad, seleccionados para que cada mesa sea inolvidable.</p>
+          <div class="socials">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.3 14c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-2.4-.9-4-3.2-4.1-3.4-.1-.2-1-1.3-1-2.5s.6-1.8.9-2c.2-.2.4-.3.6-.3h.4c.2 0 .4 0 .6.5l.7 1.7c.1.2 0 .4-.1.5l-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.2 1.6 1.6 1 .6 1.2.4 1.4.2l.6-.7c.2-.2.3-.2.6-.1l1.6.8c.2.1.4.2.4.3.1.2.1.5 0 .8z"/></svg></a>
+            <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 3h3l-7 8 8 10h-6l-5-6-5 6H2l8-9L2 3h6l4 5z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col"><h4>Tienda</h4><ul>
+          <li><a href="catalogo.html#vinos">Vinos</a></li><li><a href="catalogo.html#quesos">Quesos</a></li>
+          <li><a href="catalogo.html#carnes">Carnes</a></li><li><a href="catalogo.html#gourmet">Gourmet</a></li></ul></div>
+        <div class="footer-col"><h4>Ayuda</h4><ul>
+          <li><a href="#">Envíos y entregas</a></li><li><a href="#">Devoluciones</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li><li><a href="index.html#contacto">Contacto</a></li></ul></div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <p>Cali, Colombia · Lun&ndash;Dom 10:00&ndash;22:00</p>
+          <p style="margin-top:.4rem"><a href="mailto:hola@deliciasyvinos.co">hola@deliciasyvinos.co</a></p>
+          <h4 style="margin-top:1.4rem">Métodos de pago</h4>
+          <div class="pay-methods" aria-label="Métodos de pago">
+            <span class="pay" title="Visa"><svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" rx="5" fill="#fff"/><text x="24" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-style="italic" font-size="14" fill="#1a1f71">VISA</text></svg></span>
+            <span class="pay" title="Mastercard"><svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" rx="5" fill="#fff"/><circle cx="20" cy="16" r="8" fill="#eb001b"/><circle cx="28" cy="16" r="8" fill="#f79e1b" fill-opacity="0.85"/></svg></span>
+            <span class="pay" title="PSE"><svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" rx="5" fill="#fff"/><text x="24" y="21" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="13" fill="#0a3d8f">PSE</text></svg></span>
+            <span class="pay" title="Nequi"><svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" rx="5" fill="#210049"/><text x="24" y="21" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="11" fill="#ff0082">Nequi</text></svg></span>
+            <span class="pay" title="Efecty"><svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" rx="5" fill="#ffd400"/><text x="24" y="21" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="11" fill="#e2001a">Efecty</text></svg></span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> Delicias &amp; Vinos. Todos los derechos reservados.</span>
+        <span class="legal"><a href="#">Términos</a><a href="#">Privacidad</a><a href="#">Venta a mayores de 18</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/events.js"></script>
+  <script>
+    const ev = window.DV_getEvent(new URLSearchParams(location.search).get("id"));
+    const $ = (id) => document.getElementById(id);
+
+    document.title = ev.title + " — Delicias & Vinos";
+    document.querySelector('meta[name="description"]').setAttribute("content", ev.tagline + " " + ev.lead);
+
+    $("evPhoto").style.backgroundImage = "url('" + ev.img + "')";
+    $("evPhoto").setAttribute("aria-label", ev.title);
+    $("evCrumb").textContent = ev.title;
+    $("evEyebrow").textContent = ev.eyebrow;
+    $("evTitle").textContent = ev.title;
+    $("evTagline").textContent = ev.tagline;
+    $("evDateChip").textContent = ev.date;
+    $("evTimeChip").textContent = ev.time;
+    $("evPlaceChip").textContent = ev.place;
+
+    $("evLead").textContent = ev.lead;
+    $("evBody").innerHTML = ev.body.map((p) => "<p>" + p + "</p>").join("");
+
+    const bullet = (t) =>
+      '<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> ' + t + "</li>";
+    $("evIncludes").innerHTML = ev.includes.map(bullet).join("");
+    $("evHighlights").innerHTML = ev.highlights.map(bullet).join("");
+
+    $("evPrice").textContent = ev.price;
+    $("evDate").textContent = ev.date;
+    $("evTime").textContent = ev.time;
+    $("evPlace").textContent = ev.place;
+    $("evCupos").textContent = ev.cupos;
+
+    $("evReserve").addEventListener("click", () => {
+      const b = $("evReserve");
+      const original = b.textContent;
+      b.textContent = "¡Cupo solicitado! Te contactamos pronto.";
+      setTimeout(() => (b.textContent = original), 2200);
+    });
+
+    // Otros eventos
+    $("evMore").innerHTML = window.DV_EVENTS.filter((e) => e.id !== ev.id)
+      .map((e) =>
+        '<a class="event-card" href="evento.html?id=' + e.id + '">' +
+        '<img src="' + e.img + '" alt="" loading="lazy" />' +
+        '<div class="event-card__body"><h4>' + e.title + "</h4><p>" + e.tagline + "</p></div></a>"
+      ).join("");
+  </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo — Delicias & Vinos</title>
+  <meta name="description" content="Explora vinos, quesos, carnes y gourmet seleccionados. Filtra por categoría y arma tu caja." />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/producto.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Inicio — Delicias & Vinos">
+        <img class="brand__mark" src="assets/img/logo.webp" alt="Delicias & Vinos" />
+        <span class="brand__name">Delicias&nbsp;&amp;&nbsp;Vinos<small>Selección gourmet</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalogo.html" aria-current="page">Catálogo</a></li>
+          <li><a href="index.html#eventos">Eventos</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-btn" href="catalogo.html" aria-label="Mi cuenta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></a>
+        <a class="icon-btn" href="catalogo.html" aria-label="Carrito"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/><path d="M2 3h3l2.4 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L22 7H6"/></svg><span class="cart-count" style="display:none">0</span></a>
+      </div>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </header>
+  <div class="nav-backdrop" aria-hidden="true"></div>
+
+  <main>
+    <!-- HERO CATÁLOGO con imagen a la derecha -->
+    <section class="catalog-hero">
+      <div class="catalog-hero__photo" role="img" aria-label="Vinos seleccionados"></div>
+      <div class="container">
+        <div class="catalog-hero__content reveal">
+          <span class="eyebrow">Arma tu caja perfecta</span>
+          <h1>Catálogo</h1>
+          <p>Vinos premiados, quesos selectos, carnes curadas y antojos gourmet. Filtra, elige y recíbelo en casa en 24&ndash;48h.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARRUSEL DE OFERTAS (auto) -->
+    <section class="offers-carousel" data-offers data-interval="5500" aria-label="Ofertas">
+      <div class="container">
+        <div class="offers-viewport">
+          <div class="offers-track">
+            <article class="offer-slide">
+              <div class="offer-slide__media" style="background-image:url('assets/img/ev-festival.webp')"></div>
+              <div class="offer-slide__inner">
+                <span class="offer-badge">Hasta -75%</span>
+                <h3>Ofertas que <span class="accent">no se repiten</span></h3>
+                <p>Cientos de vinos y tablas con descuentos reales del 20% al 75%. Cuando se agota, se agota.</p>
+                <div class="offer-slide__cta">
+                  <a class="btn btn--gold" href="catalogo.html#vinos">Ver ofertas</a>
+                  <span class="offer-meta">Solo esta semana · stock limitado</span>
+                </div>
+              </div>
+            </article>
+            <article class="offer-slide">
+              <div class="offer-slide__media" style="background-image:url('assets/img/cat-quesos.webp')"></div>
+              <div class="offer-slide__inner">
+                <span class="offer-badge">2 × 1</span>
+                <h3>Lleva 2, paga 1 en <span class="accent">quesos selectos</span></h3>
+                <p>El doble de sabor por el mismo precio. Brie francés, azul curado y manchego añejo para tu próxima tabla.</p>
+                <div class="offer-slide__cta">
+                  <a class="btn btn--gold" href="catalogo.html#quesos">Aprovechar 2×1</a>
+                  <span class="offer-meta">Hasta agotar existencias</span>
+                </div>
+              </div>
+            </article>
+            <article class="offer-slide">
+              <div class="offer-slide__media" style="background-image:url('assets/img/cat-gourmet.webp')"></div>
+              <div class="offer-slide__inner">
+                <span class="offer-badge">-25%</span>
+                <h3>Caja <span class="accent">Noche Perfecta</span></h3>
+                <p>Vino, quesos y charcutería curada en una sola caja lista para servir. Tu velada inolvidable, sin pensar en nada.</p>
+                <div class="offer-slide__cta">
+                  <a class="btn btn--gold" href="catalogo.html#gourmet">Quiero la caja</a>
+                  <span class="offer-meta">Envío gratis incluido</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="offers-dots" role="tablist" aria-label="Ofertas"></div>
+      </div>
+    </section>
+
+    <!-- TOOLBAR: filtros + búsqueda -->
+    <section class="section" style="background:var(--wine-950);padding-top:clamp(2rem,5vw,3rem)">
+      <div class="container">
+        <div class="catalog-toolbar">
+          <div class="filters" role="tablist" aria-label="Filtrar por categoría">
+            <button class="active" data-filter="all">Todo</button>
+            <button data-filter="vinos">Vinos</button>
+            <button data-filter="quesos">Quesos</button>
+            <button data-filter="carnes">Carnes</button>
+            <button data-filter="gourmet">Gourmet</button>
+          </div>
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="search" id="search" placeholder="Buscar vino, queso, marca…" aria-label="Buscar productos" />
+          </div>
+        </div>
+
+        <div class="product-grid-shop" id="grid"><!-- inyectado por JS --></div>
+        <p id="no-results" class="no-results" hidden>No encontramos productos. Prueba otra búsqueda.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="contacto">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <a class="brand" href="index.html"><img class="brand__mark" src="assets/img/logo.webp" alt="Delicias & Vinos" /><span class="brand__name">Delicias&nbsp;&amp;&nbsp;Vinos<small>Selección gourmet</small></span></a>
+          <p>Vinos y charcutería de primera calidad, seleccionados para que cada mesa sea inolvidable.</p>
+          <div class="socials">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.3 14c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-2.4-.9-4-3.2-4.1-3.4-.1-.2-1-1.3-1-2.5s.6-1.8.9-2c.2-.2.4-.3.6-.3h.4c.2 0 .4 0 .6.5l.7 1.7c.1.2 0 .4-.1.5l-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.2 1.6 1.6 1 .6 1.2.4 1.4.2l.6-.7c.2-.2.3-.2.6-.1l1.6.8c.2.1.4.2.4.3.1.2.1.5 0 .8z"/></svg></a>
+            <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 3h3l-7 8 8 10h-6l-5-6-5 6H2l8-9L2 3h6l4 5z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col"><h4>Tienda</h4><ul>
+          <li><a href="catalogo.html#vinos">Vinos</a></li><li><a href="catalogo.html#quesos">Quesos</a></li>
+          <li><a href="catalogo.html#carnes">Carnes</a></li><li><a href="catalogo.html#gourmet">Gourmet</a></li></ul></div>
+        <div class="footer-col"><h4>Ayuda</h4><ul>
+          <li><a href="#">Envíos y entregas</a></li><li><a href="#">Devoluciones</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li><li><a href="index.html#contacto">Contacto</a></li></ul></div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <p>Cali, Colombia · Lun&ndash;Dom 10:00&ndash;22:00</p>
+          <p style="margin-top:.4rem"><a href="mailto:hola@deliciasyvinos.co">hola@deliciasyvinos.co</a></p>
+          <h4 style="margin-top:1.4rem">Métodos de pago</h4>
+          <div class="pay-methods" aria-label="Métodos de pago">
+            <span class="pay" title="Visa"><svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" rx="5" fill="#fff"/><text x="24" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-style="italic" font-size="14" fill="#1a1f71">VISA</text></svg></span>
+            <span class="pay" title="Mastercard"><svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" rx="5" fill="#fff"/><circle cx="20" cy="16" r="8" fill="#eb001b"/><circle cx="28" cy="16" r="8" fill="#f79e1b" fill-opacity="0.85"/></svg></span>
+            <span class="pay" title="PSE"><svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" rx="5" fill="#fff"/><text x="24" y="21" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="13" fill="#0a3d8f">PSE</text></svg></span>
+            <span class="pay" title="Nequi"><svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" rx="5" fill="#210049"/><text x="24" y="21" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="11" fill="#ff0082">Nequi</text></svg></span>
+            <span class="pay" title="Efecty"><svg viewBox="0 0 48 32" aria-hidden="true"><rect width="48" height="32" rx="5" fill="#ffd400"/><text x="24" y="21" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="11" fill="#e2001a">Efecty</text></svg></span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> Delicias &amp; Vinos. Todos los derechos reservados.</span>
+        <span class="legal"><a href="#">Términos</a><a href="#">Privacidad</a><a href="#">Venta a mayores de 18</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/catalogo.js"></script>
+</body>
+</html>
