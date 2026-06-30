@@ -1,0 +1,84 @@
+/* ============================================================
+   evento.css — ficha de detalle de un evento (evento.html?id=)
+   ============================================================ */
+
+/* ---------- HERO ---------- */
+.event-hero {
+  position: relative; overflow: hidden;
+  min-height: clamp(360px, 56vh, 560px);
+  display: flex; align-items: flex-end;
+  background: var(--wine-900);
+}
+.event-hero__photo {
+  position: absolute; inset: 0; z-index: 0;
+  background-size: cover; background-position: center;
+}
+.event-hero__photo::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(0deg, var(--wine-950) 4%, rgba(28,5,8,0.55) 45%, rgba(28,5,8,0.2) 100%),
+    linear-gradient(90deg, rgba(28,5,8,0.55), rgba(28,5,8,0) 60%);
+}
+.event-hero .container { position: relative; z-index: 1; padding-block: clamp(2rem, 5vw, 3.5rem); }
+.event-hero .breadcrumb { padding-top: 0; margin-bottom: 1.2rem; }
+.event-hero__eyebrow { display: block; margin-bottom: 0.8rem; }
+.event-hero h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); letter-spacing: -0.01em; max-width: 16ch; }
+.event-hero__tagline { color: var(--cream); font-size: clamp(1.05rem, 2vw, 1.35rem); margin-top: 0.9rem; max-width: 40ch; }
+.event-meta {
+  display: flex; flex-wrap: wrap; gap: 0.7rem 1rem; margin-top: 1.6rem;
+}
+.event-meta span {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(0,0,0,0.32); border: 1px solid var(--line); border-radius: 999px;
+  padding: 0.5rem 0.95rem; font-size: 0.85rem; font-weight: 700; color: var(--cream);
+  backdrop-filter: blur(4px);
+}
+.event-meta svg { width: 17px; height: 17px; color: var(--gold); flex: none; }
+
+/* ---------- CUERPO ---------- */
+.event-body { background: var(--wine-950); }
+.event-body__grid {
+  display: grid; grid-template-columns: 1.6fr 0.9fr; gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: start;
+}
+.event-prose .lead { color: var(--cream); font-size: clamp(1.1rem, 2vw, 1.3rem); font-family: var(--font-display); font-style: italic; }
+.event-prose p { color: var(--muted); margin-top: 1.2rem; }
+.event-prose h3 {
+  font-family: var(--font-body); font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase;
+  font-size: 0.82rem; color: var(--gold); margin: 2.2rem 0 1rem;
+}
+.event-list { display: grid; gap: 0.7rem; }
+.event-list li { display: flex; gap: 0.6rem; color: var(--muted); }
+.event-list svg { width: 18px; height: 18px; color: var(--gold); flex: none; margin-top: 4px; }
+
+/* tarjeta ficha (sticky) */
+.event-ficha {
+  position: sticky; top: calc(76px + 1.2rem);
+  background: rgba(0,0,0,0.24); border: 1px solid var(--line); border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2rem); transition: border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+.event-ficha:hover { border-color: rgba(254,178,89,0.4); box-shadow: 0 30px 60px -24px rgba(0,0,0,0.7), 0 0 50px -16px rgba(254,178,89,0.22); }
+.event-ficha .price { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.4rem); color: var(--gold); text-shadow: 0 0 28px rgba(254,178,89,0.4); }
+.event-ficha dl { margin: 1.2rem 0; display: grid; gap: 0.85rem; }
+.event-ficha dl > div { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px dashed var(--line); padding-bottom: 0.85rem; }
+.event-ficha dt { color: var(--muted); display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; }
+.event-ficha dt svg { width: 16px; height: 16px; color: var(--gold); flex: none; }
+.event-ficha dd { color: var(--cream); font-weight: 700; text-align: right; font-size: 0.9rem; }
+.event-ficha .btn { width: 100%; margin-top: 0.4rem; }
+.event-ficha .fineprint { color: var(--muted-2); font-size: 0.76rem; margin-top: 0.8rem; text-align: center; }
+
+/* ---------- OTROS EVENTOS ---------- */
+.more-events { background: var(--wine-900); }
+.more-events__row {
+  display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 1fr);
+  gap: 1.2rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 0.6rem;
+  scrollbar-width: thin; scrollbar-color: var(--gold) transparent;
+}
+.more-events__row::-webkit-scrollbar { height: 7px; }
+.more-events__row::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 99px; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 860px) {
+  .event-body__grid { grid-template-columns: 1fr; }
+  .event-ficha { position: static; }
+}

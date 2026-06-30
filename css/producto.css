@@ -1,0 +1,278 @@
+/* ============================================================
+   producto.css — ficha de producto (estilo WINETIME) + catálogo
+   ============================================================ */
+
+/* ---------- Migas ---------- */
+.breadcrumb { padding-top: 1.4rem; }
+.breadcrumb ol { display: flex; flex-wrap: wrap; gap: 0.5rem; color: var(--muted-2); font-size: 0.84rem; }
+.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb li::after { content: "/"; margin-left: 0.5rem; color: var(--muted-2); }
+.breadcrumb li:last-child::after { content: ""; }
+.breadcrumb li:last-child { color: var(--text); }
+
+/* ---------- HERO PRODUCTO ---------- */
+.product-hero {
+  position: relative; overflow: hidden;
+  background: radial-gradient(120% 110% at 75% 15%, var(--wine-700), var(--wine-900) 58%, var(--wine-950));
+  padding-block: clamp(2rem, 5vw, 4rem) clamp(3rem, 7vw, 5rem);
+}
+.product-hero__ghost {
+  position: absolute; left: 50%; top: 46%; transform: translate(-50%, -50%);
+  font-family: var(--font-display); font-style: italic; font-weight: 700;
+  font-size: clamp(7rem, 24vw, 24rem); color: rgba(246,239,228,0.045);
+  white-space: nowrap; pointer-events: none; z-index: 0; line-height: 0.8;
+}
+.product-grid {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1fr 0.9fr; gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+}
+.product-headline h1 { font-size: clamp(2.4rem, 5.5vw, 4.4rem); letter-spacing: -0.01em; }
+.product-headline .eyebrow { display: block; margin-bottom: 1rem; }
+.product-headline .desc { display: flex; align-items: center; gap: 1rem; margin-top: 2rem; color: var(--muted); max-width: 34ch; }
+.product-headline .desc::before { content: ""; width: 46px; height: 1.5px; background: var(--gold); flex: none; }
+
+/* botella central (foto real recortada) */
+.product-bottle { display: grid; place-items: center; min-height: 420px; }
+
+/* panel detalles/compra */
+.buy-panel .eyebrow { display: block; margin-bottom: 0.4rem; }
+.buy-panel .price { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3rem); color: var(--gold); }
+.buy-panel .price s { font-size: 1.2rem; color: var(--muted-2); margin-right: 0.5rem; }
+.buy-panel .stars { color: var(--gold); letter-spacing: 2px; margin: 0.4rem 0; }
+.buy-panel .vol { color: var(--muted); font-size: 0.9rem; }
+.buy-panel .stock {
+  display: inline-flex; align-items: center; gap: 0.5rem; margin: 1.2rem 0;
+  font-size: 0.84rem; color: var(--gold); font-weight: 700;
+}
+.buy-panel .stock i { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(254,178,89,.2); }
+.qty { display: inline-flex; align-items: center; gap: 0; border: 1.5px solid var(--line); border-radius: 999px; overflow: hidden; margin-bottom: 1rem; }
+.qty button { width: 44px; height: 44px; font-size: 1.2rem; color: var(--text); }
+.qty button:hover { background: rgba(246,239,228,.08); color: var(--gold); }
+.qty input { width: 48px; text-align: center; background: none; border: none; color: var(--text); font: inherit; font-weight: 700; }
+.buy-panel .guarantee { margin-top: 1.2rem; color: var(--muted); font-size: 0.82rem; display: flex; gap: 0.5rem; }
+.buy-panel .guarantee svg { width: 18px; height: 18px; color: var(--gold); flex: none; }
+
+/* ---------- TABS / INFO (DESCRIPTION / WINE NOTES / FLACON / COMPOSITION) ---------- */
+.product-tabs { background: var(--wine-950); }
+.tabs-head { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+.tabs-head button {
+  text-align: left; padding: 1.6rem 1.4rem; border-right: 1px solid var(--line);
+  color: var(--muted); transition: background 0.25s var(--ease), color 0.25s var(--ease);
+}
+.tabs-head button:last-child { border-right: none; }
+.tabs-head button .num { color: var(--gold); font-family: var(--font-body); font-weight: 900; font-size: 0.8rem; display: block; }
+.tabs-head button .t { font-family: var(--font-display); font-size: 1.15rem; }
+.tabs-head button[aria-selected="true"] { background: var(--wine-800); color: var(--cream); }
+.tabs-head button:hover { color: var(--cream); }
+.tab-panel { padding: clamp(2rem, 5vw, 3.5rem) 1.4rem; max-width: 760px; }
+.tab-panel[hidden] { display: none; }
+.tab-panel p { color: var(--muted); }
+.tab-panel ul { display: grid; gap: 0.7rem; margin-top: 1rem; }
+.tab-panel ul li { display: flex; gap: 0.6rem; color: var(--muted); }
+.tab-panel ul svg { width: 18px; height: 18px; color: var(--gold); flex: none; margin-top: 4px; }
+
+/* ---------- BLOQUE OFERTA (Hormozi) ---------- */
+.value-stack { background: var(--wine-900); }
+.value-stack__box {
+  max-width: 720px; margin-inline: auto; background: rgba(0,0,0,.22);
+  border: 1px solid var(--line); border-radius: var(--radius-lg); padding: clamp(1.6rem, 4vw, 2.6rem);
+}
+.value-stack__box li { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; border-bottom: 1px dashed var(--line); }
+.value-stack__box li span { color: var(--muted); }
+.value-stack__box li b { color: var(--cream); white-space: nowrap; }
+.value-stack__total { display: flex; justify-content: space-between; align-items: center; margin-top: 1.2rem; }
+.value-stack__total .big { font-family: var(--font-display); font-size: 2rem; color: var(--gold); }
+.value-stack__total s { color: var(--muted-2); }
+
+/* imagen de producto no-recortada (fotos cuadradas): se enmarca como tarjeta */
+.bottle-img.is-photo {
+  height: auto; width: min(380px, 84%); aspect-ratio: 4/5; object-fit: cover;
+  border-radius: 24px; border: 1px solid rgba(254,178,89,.2); box-shadow: var(--shadow-card);
+}
+.bottle-stage:hover .bottle-img.is-photo { transform: translateY(-10px) scale(1.02); }
+
+/* ====================================================
+   CATÁLOGO
+   ==================================================== */
+.catalog-hero {
+  position: relative; overflow: hidden;
+  background: linear-gradient(120deg, var(--wine-800), var(--wine-900));
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+}
+.catalog-hero__photo {
+  position: absolute; top: 0; right: 0; bottom: 0; width: 56%;
+  background: url("../assets/img/cat-vinos.webp") center/cover no-repeat;
+}
+/* fundido suave y multi-stop: el color sólido se disuelve hacia la imagen sin corte */
+.catalog-hero__photo::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg,
+      var(--wine-800) 0%,
+      var(--wine-800) 14%,
+      rgba(66,9,14,0.92) 30%,
+      rgba(66,9,14,0.62) 46%,
+      rgba(66,9,14,0.28) 64%,
+      rgba(66,9,14,0.06) 82%,
+      rgba(66,9,14,0) 100%),
+    linear-gradient(0deg, rgba(28,5,8,0.55) 0%, rgba(28,5,8,0) 38%);
+}
+.catalog-hero .container { position: relative; z-index: 1; }
+.catalog-hero__content { max-width: 540px; }
+.catalog-hero h1 { font-size: clamp(2.6rem, 6vw, 4rem); }
+.catalog-hero .eyebrow { display: block; margin-bottom: 0.8rem; }
+.catalog-hero p { color: var(--muted); max-width: 46ch; margin-top: 0.8rem; }
+
+/* carrusel de ofertas */
+.offers-carousel { background: var(--wine-950); padding-top: clamp(2rem, 5vw, 3rem); }
+/* viewport que recorta: garantiza que solo se vea un slide completo, sin asomar el siguiente */
+.offers-viewport { overflow: hidden; border-radius: var(--radius-lg); border: 1px solid var(--line); }
+.offers-track { display: flex; will-change: transform; transition: transform 0.8s var(--ease-wine); }
+.offer-slide {
+  position: relative; flex: 0 0 100%; width: 100%; min-width: 0;
+  min-height: clamp(248px, 32vw, 320px);
+  overflow: hidden; display: flex; align-items: center;
+}
+/* la imagen va en su propia capa con fundido suave (sin corte sólido→foto) */
+.offer-slide__media { position: absolute; inset: 0; z-index: 0; background-size: cover; background-position: center; }
+.offer-slide__media::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg,
+      var(--wine-950) 0%, var(--wine-950) 16%,
+      rgba(28,5,8,0.92) 34%, rgba(28,5,8,0.6) 52%,
+      rgba(28,5,8,0.22) 72%, rgba(28,5,8,0) 92%),
+    linear-gradient(0deg, rgba(28,5,8,0.5) 0%, rgba(28,5,8,0) 46%);
+}
+.offer-slide__inner { position: relative; z-index: 1; padding: clamp(1.6rem, 4vw, 2.8rem); max-width: 540px; }
+.offer-badge {
+  display: inline-block; background: var(--gold); color: var(--wine-800);
+  font-family: var(--font-body); font-weight: 900; font-size: 0.7rem; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.34rem 0.7rem; border-radius: 999px; margin-bottom: 0.9rem;
+  box-shadow: 0 6px 18px -6px rgba(254,178,89,.6);
+}
+.offer-slide__inner h3 { font-family: var(--font-display); font-size: clamp(1.7rem, 3.4vw, 2.6rem); line-height: 1.08; }
+.offer-slide__inner p { color: var(--muted); margin: 0.55rem 0 1.25rem; max-width: 42ch; }
+.offer-slide__cta { display: flex; align-items: center; gap: 1rem 1.2rem; flex-wrap: wrap; }
+.offer-meta { color: var(--gold); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.03em; }
+.offers-dots { display: flex; gap: 0.6rem; justify-content: center; margin-top: 1.2rem; }
+.offers-dots button { width: 30px; height: 5px; border-radius: 99px; background: rgba(246,239,228,.28); transition: background 0.4s var(--ease), width 0.4s var(--ease); }
+.offers-dots button[aria-selected="true"] { background: var(--gold); width: 48px; }
+
+/* toolbar: filtros + búsqueda */
+.catalog-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem 1.5rem; flex-wrap: wrap; margin-bottom: 2.2rem; }
+.search-box {
+  display: flex; align-items: center; gap: 0.6rem; flex: 0 1 320px;
+  border: 1.5px solid var(--line); border-radius: 999px; padding: 0.5rem 1.1rem;
+  background: rgba(0,0,0,0.25); transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.search-box:focus-within { border-color: var(--gold); box-shadow: 0 0 0 4px rgba(254,178,89,.16); }
+.search-box svg { width: 18px; height: 18px; color: var(--muted); flex: none; }
+.search-box input { flex: 1; min-width: 0; background: none; border: none; color: var(--text); font: inherit; }
+.search-box input:focus { outline: none; }
+.search-box input::placeholder { color: var(--muted-2); }
+.no-results { text-align: center; color: var(--muted); padding: 3rem 0; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.filters button {
+  padding: 0.6em 1.2em; border-radius: 999px; border: 1.5px solid var(--line);
+  color: var(--muted); font-weight: 700; font-size: 0.86rem; transition: all 0.2s var(--ease);
+}
+.filters button:hover { border-color: var(--gold); color: var(--gold); }
+.filters button.active { background: var(--gold); color: var(--wine-800); border-color: var(--gold); }
+
+.product-grid-shop { display: grid; gap: 1.4rem; grid-template-columns: repeat(4, 1fr); }
+.pcard {
+  background: var(--wine-900); border: 1px solid var(--line); border-radius: var(--radius);
+  overflow: hidden; display: flex; flex-direction: column;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.pcard:hover { transform: translateY(-6px); border-color: rgba(254,178,89,.4); box-shadow: var(--shadow-card); }
+.pcard__media { position: relative; aspect-ratio: 1/1; overflow: hidden; background: var(--wine-800); }
+.pcard__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease); }
+.pcard:hover .pcard__media img { transform: scale(1.07); }
+.pcard__tag { position: absolute; top: 0.8rem; left: 0.8rem; background: var(--gold); color: var(--wine-800); font-weight: 900; font-size: 0.66rem; letter-spacing: 0.05em; padding: 0.3rem 0.6rem; border-radius: 7px; text-transform: uppercase; }
+.pcard__body { padding: 1.1rem 1.1rem 1.3rem; display: flex; flex-direction: column; flex: 1; }
+.pcard__cat { color: var(--gold); font-size: 0.7rem; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; }
+.pcard__media { display: block; }
+.pcard__name { display: block; font-family: var(--font-display); font-size: 1.15rem; margin: 0.3rem 0; color: var(--cream); transition: color 0.2s var(--ease); }
+.pcard__name:hover { color: var(--gold); }
+.pcard__stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 1px; }
+.pcard__foot { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; margin-top: auto; padding-top: 1rem; }
+.pcard__price { font-family: var(--font-display); font-size: 1.25rem; color: var(--cream); }
+.pcard__price s { display: block; font-size: 0.78rem; color: var(--muted-2); }
+.pcard__add { position: relative; width: 42px; height: 42px; border-radius: 50%; background: var(--gold); color: var(--wine-800); display: grid; place-items: center; flex: none; transition: transform 0.2s var(--ease), background 0.2s var(--ease); }
+.pcard__add:hover { transform: scale(1.1); background: #ffc278; }
+.pcard__add.added { transform: scale(1.28); }
+.pcard__add svg { width: 20px; height: 20px; }
+/* contador de cantidad en carrito */
+.pcard__qty {
+  position: absolute; top: -7px; right: -7px; min-width: 21px; height: 21px; padding: 0 5px;
+  background: var(--rose); color: #fff; border: 2px solid var(--wine-900); border-radius: 999px;
+  font-family: var(--font-body); font-weight: 900; font-size: 0.7rem; display: grid; place-items: center;
+  animation: qtyPop 0.3s var(--ease);
+}
+@keyframes qtyPop { 0% { transform: scale(0); } 60% { transform: scale(1.3); } }
+
+/* ============================================================
+   PREMIUM PRODUCTO — glows, deriva, hovers
+   ============================================================ */
+.product-hero__ghost { animation: pghost 20s ease-in-out infinite; }
+@keyframes pghost { 50% { transform: translate(-50%, -50%) translateX(28px); } }
+.buy-panel .price { text-shadow: 0 0 30px rgba(254, 178, 89, 0.4); }
+.buy-panel .stock i { animation: stockBlink 1.8s ease-in-out infinite; }
+@keyframes stockBlink { 50% { box-shadow: 0 0 0 7px rgba(254, 178, 89, 0.05); } }
+.tabs-head button { position: relative; }
+.tabs-head button::after {
+  content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 0;
+  background: var(--gold); transition: width 0.3s var(--ease);
+}
+.tabs-head button[aria-selected="true"]::after { width: 100%; }
+.value-stack__box { transition: box-shadow 0.4s var(--ease), border-color 0.4s var(--ease); }
+.value-stack__box:hover { border-color: rgba(254,178,89,0.4); box-shadow: 0 30px 60px -24px rgba(0,0,0,0.7), 0 0 50px -14px rgba(254,178,89,0.25); }
+.value-stack__total .big { text-shadow: 0 0 28px rgba(254, 178, 89, 0.45); }
+
+/* Catálogo: glow dorado en tarjeta + halo en botón add */
+.pcard:hover { box-shadow: 0 28px 56px -22px rgba(0,0,0,0.8), 0 0 46px -12px rgba(254,178,89,0.3); }
+.pcard__media::after {
+  content: ""; position: absolute; inset: 0; opacity: 0;
+  background: linear-gradient(120deg, transparent 40%, rgba(254,178,89,0.18) 50%, transparent 60%);
+  transition: opacity 0.4s var(--ease); pointer-events: none;
+}
+.pcard:hover .pcard__media::after { opacity: 1; }
+.pcard__add { box-shadow: 0 8px 20px -8px rgba(254,178,89,0.7); }
+.pcard__add:hover { box-shadow: 0 0 24px -2px rgba(254,178,89,0.8); }
+.filters button { position: relative; overflow: hidden; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .product-grid { grid-template-columns: 1fr 1fr; }
+  .buy-panel { grid-column: 1 / -1; }
+  .product-grid-shop { grid-template-columns: repeat(3, 1fr); }
+  .catalog-hero__photo { width: 100%; opacity: 0.45; }
+  .catalog-hero__photo::before { background: linear-gradient(90deg, var(--wine-800) 25%, rgba(66,9,14,0.6) 75%); }
+}
+@media (max-width: 760px) {
+  .product-grid { grid-template-columns: 1fr; text-align: center; }
+  .product-headline .desc { margin-inline: auto; }
+  .product-bottle { order: -1; min-height: 320px; }
+  .tabs-head { grid-template-columns: 1fr 1fr; }
+  .tabs-head button:nth-child(2) { border-right: none; }
+  .tabs-head button:nth-child(1), .tabs-head button:nth-child(2) { border-bottom: 1px solid var(--line); }
+  .product-grid-shop { grid-template-columns: repeat(2, 1fr); }
+  .catalog-toolbar { flex-direction: column; align-items: stretch; }
+  .search-box { flex-basis: auto; }
+  /* en móvil la foto va más velada para que el texto de la oferta se lea */
+  .offer-slide__media::after {
+    background:
+      linear-gradient(90deg, rgba(28,5,8,0.94) 30%, rgba(28,5,8,0.72) 70%, rgba(28,5,8,0.5) 100%),
+      linear-gradient(0deg, rgba(28,5,8,0.6) 0%, rgba(28,5,8,0) 55%);
+  }
+  .offer-slide__inner { max-width: none; }
+}
+@media (max-width: 440px) {
+  .tabs-head { grid-template-columns: 1fr; }
+  .tabs-head button { border-right: none; border-bottom: 1px solid var(--line); }
+  .product-grid-shop { grid-template-columns: 1fr; }
+}
